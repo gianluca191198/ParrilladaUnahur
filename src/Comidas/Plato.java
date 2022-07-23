@@ -9,4 +9,8 @@ public abstract class Plato {
 	boolean esAbundante() {
 		return peso > 250;
 	}
+	
+	public int getValoracion() throws Exception {
+		return this.valoracion;
+	}
 }

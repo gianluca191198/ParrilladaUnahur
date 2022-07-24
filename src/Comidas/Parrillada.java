@@ -11,6 +11,7 @@ public class Parrillada extends Plato{
 		this.asado = asado;
 		this.vacio = vacio;
 		this.matambreDeCerdo = matambreDeCerdo;
+		aptoVegetariano = false;
 	}
 	
 	@Override

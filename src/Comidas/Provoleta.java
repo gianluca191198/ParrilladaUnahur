@@ -6,7 +6,7 @@ public class Provoleta extends Plato{
 	public Provoleta(int peso, boolean tieneEspecias) {
 		this.peso = peso;
 		this.tieneEspecias = tieneEspecias;
-		esAptoVegetariano = true;
+		aptoVegetariano = true;
 	}
 	
 	boolean esEspecial() {

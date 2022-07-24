@@ -2,15 +2,23 @@ package Comidas;
 
 public abstract class Plato {
 
-	protected double peso;
+	protected int peso;
 	protected int valoracion;
-	protected boolean esAptoVegetariano;
+	protected boolean aptoVegetariano;
 	
-	boolean esAbundante() {
-		return peso > 250;
+	public boolean esAbundante() {
+		return getPeso() > 250;
 	}
 	
 	public int getValoracion() throws Exception {
 		return this.valoracion;
+	}
+
+	public int getPeso() {
+		return peso;
+	}
+	
+	public boolean esAptoVegetariano() {
+		return aptoVegetariano;
 	}
 }

@@ -7,7 +7,7 @@ public class HamburguesaVegetariana extends Plato{
 	
 	public HamburguesaVegetariana(Pan pan, String ingrediente ) {
 		peso = 250;
-		esAptoVegetariano = true;
+		aptoVegetariano = true;
 		this.pan = pan;
 		this.ingrediente = ingrediente;
 	}

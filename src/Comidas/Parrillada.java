@@ -1,37 +1,36 @@
 package Comidas;
 
+import java.util.List;
+
 public class Parrillada extends Plato{
 	int calidad;
-	Asado asado;
-	Vacio vacio;
-	MatambreDeCerdo matambreDeCerdo; 
+	List<Corte> cortes;
 	
-	public Parrillada(Asado asado, Vacio vacio, MatambreDeCerdo matambreDeCerdo) {
-		peso = asado.peso + vacio.peso + matambreDeCerdo.peso;
-		this.asado = asado;
-		this.vacio = vacio;
-		this.matambreDeCerdo = matambreDeCerdo;
+	public Parrillada(List<Corte> cortes) {
+		this.cortes = cortes;
+		for(Corte corte : cortes) {
+			peso += corte.peso;
+		}
 		aptoVegetariano = false;
 	}
 	
 	@Override
 	public int getValoracion() throws Exception {
-		int calidadMaxima;
+		int calidadMaxima = 0;
+		int cantidadTotal = 0;
 		
-		if(this.vacio.cantidad > 0) {
-			calidadMaxima = this.vacio.calidad;
-		}else if(this.asado.cantidad > 0) {
-			calidadMaxima = this.asado.calidad;
-		}else {
-			calidadMaxima = this.matambreDeCerdo.calidad;
-		} 
+		for(Corte corte : this.cortes) {
+			if(calidadMaxima < corte.calidad) {
+				calidadMaxima = corte.calidad;				
+			}
+		}
 		
-		calidadMaxima = (15 * calidadMaxima) - (this.vacio.cantidad + this.asado.cantidad + this.matambreDeCerdo.cantidad);
+		int valoracion = (15 * calidadMaxima) - cortes.size();
 		
-		if(calidadMaxima < 0) {
+		if(valoracion < 0) {
 			throw new Exception("Error en la valoracion");
 		}
-		return calidadMaxima;
+		return valoracion;
 	}
 	
 }

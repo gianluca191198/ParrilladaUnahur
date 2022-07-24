@@ -8,7 +8,7 @@ public abstract class Comensal {
 	int peso;
 	List<Plato> platosComidos;
 	
-	boolean estaSatisfecho(){
+	public boolean estaSatisfecho(){
 		int pesoComidas = 0;
 		for(Plato plato: platosComidos) {
 			pesoComidas += plato.getPeso();
@@ -17,11 +17,11 @@ public abstract class Comensal {
 		return pesoComidas > (peso*0.01);
 	}
 	
-	boolean leAgrada(Plato plato) {
+	public boolean leAgrada(Plato plato) {
 		return true;
 	}
 	
-	void comer(Plato plato) {
+	public void comer(Plato plato) {
 		platosComidos.add(plato);
 	}
 

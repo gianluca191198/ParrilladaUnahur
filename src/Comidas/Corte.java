@@ -1,7 +1,11 @@
 package Comidas;
 
-public abstract class Corte {
+public class Corte extends Plato {
 	int calidad;
 	int peso;
-	int cantidad;
+	String nombre;
+	
+	public Corte(String nomrbe, int calidad, int peso) {
+		this.calidad = calidad;
+	}
 }

@@ -1,15 +1,18 @@
 package Comensales;
 
+import java.util.ArrayList;
+
 import Comidas.Plato;
 
 public class Vegetariano extends Comensal {
 	
 	public Vegetariano(int peso) {
 		this.peso = peso;
+		this.platosComidos = new ArrayList<Plato>();
 	}
 	
 	@Override
-	boolean leAgrada(Plato plato) {
+	public boolean leAgrada(Plato plato) {
 		boolean agrada = false;
 		try {
 			agrada = plato.esAptoVegetariano() && (plato.getValoracion() > 80);
@@ -20,7 +23,7 @@ public class Vegetariano extends Comensal {
 	}
 	
 	@Override
-	boolean estaSatisfecho(){
+	public boolean estaSatisfecho(){
 		int pesoComidas = 0;
 		boolean comidasAbundantes = false;
 		for(Plato plato: platosComidos) {
@@ -30,6 +33,6 @@ public class Vegetariano extends Comensal {
 			}
 		}
 		
-		return pesoComidas >= (peso*0.01) && comidasAbundantes;
+		return pesoComidas >= (peso*0.01) && !comidasAbundantes;
 	}
 }

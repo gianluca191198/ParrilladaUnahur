@@ -9,7 +9,7 @@ public class Provoleta extends Plato{
 		aptoVegetariano = true;
 	}
 	
-	boolean esEspecial() {
+	public boolean esEspecial() {
 		return esAbundante() || this.tieneEspecias;
 	}
 	
